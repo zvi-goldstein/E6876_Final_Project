@@ -6,8 +6,8 @@ def SoftThresh(x, tau):
 
 def ShrinkageOperator(X, tau):
     U, S, Vt = np.linalg.svd(X, full_matrices=False)
-    S = np.diag(SoftThresh(S,tau))
+    S = np.diag(SoftThresh(S, tau))
     return U @ S @ Vt
 
 def Proj(X, mask):
-    return X*(mask == 1)
+    return X*mask
